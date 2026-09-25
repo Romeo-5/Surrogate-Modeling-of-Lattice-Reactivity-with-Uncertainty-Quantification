@@ -1,0 +1,82 @@
+{
+  "centre": {
+    "enrichment": 3.5,
+    "fuel_temperature": 900.0,
+    "moderator_density": 0.8,
+    "pitch": 1.2999999999999998
+  },
+  "n_train": 320,
+  "particles": 50000,
+  "comparisons": {
+    "fuel_temperature": {
+      "units": "pcm per K",
+      "interval": [
+        600.0,
+        1200.0
+      ],
+      "direct": {
+        "lo": {
+          "value": 600.0,
+          "keff": 1.253909179803731,
+          "keff_sigma": 0.00039013893955046173,
+          "wall_time_s": 50.678764928998135
+        },
+        "hi": {
+          "value": 1200.0,
+          "keff": 1.2381809743817693,
+          "keff_sigma": 0.0004342994556370176,
+          "wall_time_s": 50.76197835600033
+        },
+        "coefficient_pcm_per_unit": -1.6884092160631274,
+        "sigma_pcm_per_unit": 0.06276503260024306
+      },
+      "surrogate": {
+        "keff_lo": 1.2541268527247407,
+        "keff_hi": 1.2386924283464136,
+        "coefficient_pcm_per_unit": -1.6559004993286266,
+        "sigma_pcm_per_unit": 0.07018053886880338
+      },
+      "difference_pcm_per_unit": 0.03250871673450084,
+      "combined_sigma_pcm_per_unit": 0.09415284038851508,
+      "sigmas_apart": 0.34527600654803303,
+      "agree_within_2_sigma": true,
+      "expected_sign": -1,
+      "sign_correct": true
+    },
+    "enrichment": {
+      "units": "pcm per wt% U235",
+      "interval": [
+        2.0,
+        5.0
+      ],
+      "direct": {
+        "lo": {
+          "value": 2.0,
+          "keff": 1.0634595902348971,
+          "keff_sigma": 0.0003417876365044946,
+          "wall_time_s": 54.478703274999134
+        },
+        "hi": {
+          "value": 5.0,
+          "keff": 1.3383333565685231,
+          "keff_sigma": 0.0003813337173422448,
+          "wall_time_s": 49.05360940199898
+        },
+        "coefficient_pcm_per_unit": 6437.640847882406,
+        "sigma_pcm_per_unit": 12.322509577081885
+      },
+      "surrogate": {
+        "keff_lo": 1.0638220447571907,
+        "keff_hi": 1.3387071807619317,
+        "coefficient_pcm_per_unit": 6433.916546004574,
+        "sigma_pcm_per_unit": 20.308847708763388
+      },
+      "difference_pcm_per_unit": -3.724301877831749,
+      "combined_sigma_pcm_per_unit": 23.75486345014466,
+      "sigmas_apart": 0.15678060560727278,
+      "agree_within_2_sigma": true,
+      "expected_sign": 1,
+      "sign_correct": true
+    }
+  }
+}

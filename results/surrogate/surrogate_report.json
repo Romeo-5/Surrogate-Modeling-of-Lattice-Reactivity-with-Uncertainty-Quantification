@@ -1,0 +1,439 @@
+{
+  "n_runs_total": 488,
+  "replicate_analysis": {
+    "available": true,
+    "points": [
+      {
+        "run_id": "134f5e1d6a99",
+        "n_seeds": 8,
+        "mean_keff": 1.2081883596333256,
+        "observed_std_pcm": 98.43506686947636,
+        "reported_sigma_pcm": 91.9035150795075,
+        "ratio": 1.071069662398857,
+        "enrichment": 3.0889414711391083,
+        "fuel_temperature": 849.5764664638718,
+        "moderator_density": 0.7436801310571758,
+        "pitch": 1.2002456877039835
+      },
+      {
+        "run_id": "3ed689f379bd",
+        "n_seeds": 8,
+        "mean_keff": 1.2975547180160931,
+        "observed_std_pcm": 73.42781211418529,
+        "reported_sigma_pcm": 92.74905463852463,
+        "ratio": 0.7916825934275993,
+        "enrichment": 4.217982896732768,
+        "fuel_temperature": 789.3831570647299,
+        "moderator_density": 0.9605498679488185,
+        "pitch": 1.274091394532149
+      },
+      {
+        "run_id": "5f65fc0e7452",
+        "n_seeds": 8,
+        "mean_keff": 1.119625128067975,
+        "observed_std_pcm": 48.568388098211564,
+        "reported_sigma_pcm": 87.35352061772203,
+        "ratio": 0.5559980611515062,
+        "enrichment": 2.4877474127651613,
+        "fuel_temperature": 1121.9846108632678,
+        "moderator_density": 0.9057512079557548,
+        "pitch": 1.3135836249990416
+      },
+      {
+        "run_id": "aea0849fa275",
+        "n_seeds": 8,
+        "mean_keff": 1.3135598832627933,
+        "observed_std_pcm": 99.29265793655873,
+        "reported_sigma_pcm": 94.57376187195122,
+        "ratio": 1.0498964614625004,
+        "enrichment": 4.544855267854177,
+        "fuel_temperature": 960.8120341527249,
+        "moderator_density": 0.667085744710595,
+        "pitch": 1.3576345536035768
+      },
+      {
+        "run_id": "ddc03bc253f4",
+        "n_seeds": 8,
+        "mean_keff": 1.2399506038401076,
+        "observed_std_pcm": 119.66699519665646,
+        "reported_sigma_pcm": 87.76162021591541,
+        "ratio": 1.3635458746345601,
+        "enrichment": 3.4499510803474984,
+        "fuel_temperature": 605.5973571480337,
+        "moderator_density": 0.8084414423813217,
+        "pitch": 1.3674787057988391
+      }
+    ],
+    "mean_ratio": 0.9664385306150045,
+    "consistent": true,
+    "interpretation": "observed scatter / reported sigma; ~1 means the quoted Monte Carlo uncertainty is honest"
+  },
+  "n_train": 320,
+  "n_test": 128,
+  "keff_range": [
+    1.0238399771748805,
+    1.3433791983560839
+  ],
+  "gaussian_process": {
+    "name": "Gaussian process",
+    "metrics": {
+      "n": 128,
+      "rmse_pcm": 93.88318692185707,
+      "mae_pcm": 77.15234858346464,
+      "max_abs_pcm": 228.08065153530066,
+      "bias_pcm": 15.684430782399867,
+      "r2": 0.9998545338284897,
+      "coverage_95": 0.9765625,
+      "mean_pred_sigma_pcm": 53.41669705321126
+    },
+    "uncertainty_comparison": {
+      "surrogate_rmse_pcm": 93.88318692185707,
+      "mean_mc_sigma_pcm": 90.22274245234453,
+      "rms_mc_sigma_pcm": 90.45293942980206,
+      "noise_upper_bound_pcm": 128.20493877797622,
+      "deconvolved_rmse_pcm": 25.14594470511927,
+      "deconvolution_note": "error against the true response surface, with the reference runs' own Monte Carlo noise removed in quadrature",
+      "ratio_rmse_to_mc_sigma": 1.037923007407815,
+      "ratio_deconvolved_to_mc_sigma": 0.27800030450789626,
+      "below_mc_sigma": false,
+      "deconvolved_below_mc_sigma": true,
+      "below_noise_upper_bound": true
+    },
+    "fit_time_s": 4.2032830260031915,
+    "predict_time_s_per_point": 6.583484378097637e-06,
+    "kernel": {
+      "kernel": "1.97**2 * Matern(length_scale=[5.8, 71.6, 12.4, 13.6], nu=2.5) + WhiteKernel(noise_level=9.74e-08)",
+      "length_scales_unit_cube": {
+        "enrichment": 5.800042815858462,
+        "fuel_temperature": 71.57874502361979,
+        "moderator_density": 12.384854829409893,
+        "pitch": 13.640002062622038
+      },
+      "log_marginal_likelihood": 1648.70366530546
+    }
+  },
+  "neural_network": {
+    "name": "Neural network (MLP)",
+    "metrics": {
+      "n": 128,
+      "rmse_pcm": 98.09292388262926,
+      "mae_pcm": 79.87376436765382,
+      "max_abs_pcm": 262.4274854606368,
+      "bias_pcm": 16.962516180482787,
+      "r2": 0.9998411958961088,
+      "coverage_95": null,
+      "mean_pred_sigma_pcm": null
+    },
+    "uncertainty_comparison": {
+      "surrogate_rmse_pcm": 98.09292388262926,
+      "mean_mc_sigma_pcm": 90.22274245234453,
+      "rms_mc_sigma_pcm": 90.45293942980206,
+      "noise_upper_bound_pcm": 128.20493877797622,
+      "deconvolved_rmse_pcm": 37.95375428533862,
+      "deconvolution_note": "error against the true response surface, with the reference runs' own Monte Carlo noise removed in quadrature",
+      "ratio_rmse_to_mc_sigma": 1.084463639335418,
+      "ratio_deconvolved_to_mc_sigma": 0.4195966933146871,
+      "below_mc_sigma": false,
+      "deconvolved_below_mc_sigma": true,
+      "below_noise_upper_bound": true
+    },
+    "fit_time_s": 0.516630535999866,
+    "predict_time_s_per_point": 3.7071640690555796e-06
+  },
+  "speedup": {
+    "mean_transport_wall_time_s": 71.6215302709875,
+    "transport_threads_per_run": 4,
+    "mean_transport_core_seconds": 286.48612108395,
+    "surrogate_predict_time_s": 6.583484378097637e-06,
+    "speedup_factor": 10878970.186253143,
+    "note": "One transport run at campaign settings on 4 threads vs one GP evaluation on one thread. The comparison is of marginal cost only: it excludes the campaign that trained the surrogate, which a real application has to amortise over however many evaluations it needs."
+  },
+  "worst_point": {
+    "parameters": {
+      "enrichment": 3.5539741730317473,
+      "fuel_temperature": 686.351921595633,
+      "moderator_density": 0.6267433568835258,
+      "pitch": 1.2158377446234225
+    },
+    "abs_error_pcm": 228.08065153530066,
+    "mc_sigma_pcm": 101.02774778247026,
+    "gp_sigma_pcm": 67.5085081765202,
+    "distance_to_nearest_edge": {
+      "enrichment": 1.4460258269682527,
+      "fuel_temperature": 86.35192159563303,
+      "moderator_density": 0.026743356883525804,
+      "pitch": 0.01583774462342258
+    }
+  },
+  "error_vs_edge_distance_corr": 0.012116902520413494,
+  "learning_curve": {
+    "sizes": [
+      20,
+      40,
+      80,
+      120,
+      160,
+      240,
+      320
+    ],
+    "gp_rmse_pcm": [
+      416.2081231311076,
+      178.62073877661584,
+      112.07778133539956,
+      98.0274261265871,
+      98.1576419724217,
+      95.83457053913132,
+      94.34413010313159
+    ],
+    "mlp_rmse_pcm": [
+      514.5910173689102,
+      333.10865618780116,
+      291.8565487347589,
+      115.46654025524874,
+      110.05818050250069,
+      100.64181103020286,
+      101.17701540040967
+    ]
+  },
+  "reactivity_coefficients": {
+    "at_centre": {
+      "fuel_temperature": {
+        "parameter": "fuel_temperature",
+        "at": {
+          "enrichment": 3.5,
+          "fuel_temperature": 900.0,
+          "moderator_density": 0.8,
+          "pitch": 1.2999999999999998
+        },
+        "value_pcm_per_unit": -1.656080100386022,
+        "sigma_pcm_per_unit": 0.24272008658185687,
+        "units": "pcm per K",
+        "expected_sign": -1,
+        "consistent": true,
+        "significant": true
+      },
+      "enrichment": {
+        "parameter": "enrichment",
+        "at": {
+          "enrichment": 3.5,
+          "fuel_temperature": 900.0,
+          "moderator_density": 0.8,
+          "pitch": 1.2999999999999998
+        },
+        "value_pcm_per_unit": 5343.257081517627,
+        "sigma_pcm_per_unit": 62.162300368361024,
+        "units": "pcm per wt% U235",
+        "expected_sign": 1,
+        "consistent": true,
+        "significant": true
+      }
+    },
+    "profiles": {
+      "fuel_temperature": {
+        "temperature_K": [
+          630.0,
+          652.5,
+          675.0,
+          697.5,
+          720.0,
+          742.5,
+          765.0,
+          787.5,
+          810.0,
+          832.5,
+          855.0,
+          877.5,
+          900.0,
+          922.5,
+          945.0,
+          967.5,
+          990.0,
+          1012.5,
+          1035.0,
+          1057.5,
+          1080.0,
+          1102.5,
+          1125.0,
+          1147.5,
+          1170.0
+        ],
+        "value_pcm_per_K": [
+          -1.7457094696671818,
+          -1.7417812169106155,
+          -1.7352348352023639,
+          -1.7273689316844367,
+          -1.7194895547576727,
+          -1.7115976811522715,
+          -1.7036942644657425,
+          -1.695780293168759,
+          -1.6878565774059444,
+          -1.679923931817281,
+          -1.671983188105733,
+          -1.6640349646748986,
+          -1.656080100386022,
+          -1.6481192298543785,
+          -1.6401529110574948,
+          -1.6321817764296205,
+          -1.6242063340468675,
+          -1.616227087891728,
+          -1.6082445720573086,
+          -1.600259208098025,
+          -1.5922713893407785,
+          -1.584281540793099,
+          -1.576289934633031,
+          -1.569629639256215,
+          -1.5656338244590868
+        ],
+        "sigma_pcm_per_K": [
+          0.3207377463198783,
+          0.25997161884293835,
+          0.24446403628807167,
+          0.2439192674833592,
+          0.24345479904044143,
+          0.24307152696215328,
+          0.24277027083003114,
+          0.24255177706270406,
+          0.2424166752210558,
+          0.24236553450966802,
+          0.24239881928267876,
+          0.2425169086972198,
+          0.24272008658185687,
+          0.2430085484376726,
+          0.24338238196328238,
+          0.243841602270008,
+          0.24438611851324846,
+          0.2450157582748595,
+          0.24573025254329378,
+          0.24652925219769228,
+          0.2474123157644427,
+          0.24837893797081645,
+          0.24942852445834773,
+          0.2656403501100873,
+          0.32788531632990264
+        ],
+        "negative_everywhere": true,
+        "figure": "results/surrogate/fig_doppler.png"
+      },
+      "moderator_density": {
+        "density_g_cm3": [
+          0.62,
+          0.635,
+          0.65,
+          0.665,
+          0.6799999999999999,
+          0.695,
+          0.71,
+          0.725,
+          0.74,
+          0.755,
+          0.77,
+          0.7849999999999999,
+          0.8,
+          0.815,
+          0.83,
+          0.845,
+          0.86,
+          0.875,
+          0.89,
+          0.905,
+          0.9199999999999999,
+          0.935,
+          0.95,
+          0.965,
+          0.98
+        ],
+        "value_pcm_per_g_cm3": [
+          4194.138198512291,
+          3884.21562946997,
+          3368.2264774112227,
+          2744.4820737071227,
+          2117.1849290089544,
+          1490.8339949544697,
+          870.8598725440969,
+          263.297406885292,
+          -325.5725462058369,
+          -889.6246803641079,
+          -1423.3619618972423,
+          -1922.408427432663,
+          -2383.9252379191453,
+          -2806.8719558557036,
+          -3192.0697297373817,
+          -3542.042104124167,
+          -3860.648642485635,
+          -4152.58965726402,
+          -4422.884666915229,
+          -4676.410030908614,
+          -4917.5437147979255,
+          -5149.941026563217,
+          -5376.438774494309,
+          -5562.513154619669,
+          -5673.660808817599
+        ],
+        "sigma_pcm_per_g_cm3": [
+          628.2842997305665,
+          535.7499853045432,
+          486.46246692610254,
+          457.34394082520737,
+          437.1510558624313,
+          424.23678607857636,
+          416.7695204568671,
+          412.975094810382,
+          411.33255002055375,
+          410.6935462697779,
+          410.32300634616735,
+          409.8734254206401,
+          409.31031634795744,
+          408.8060936277476,
+          408.6253468741635,
+          409.03671880849515,
+          410.2876289678443,
+          412.66349620256574,
+          416.6301367513385,
+          423.02726030353546,
+          433.2400489230811,
+          449.23581227194535,
+          473.36043361886516,
+          519.6722304786485,
+          614.0903832402884
+        ],
+        "changes_sign": true,
+        "figure": "results/surrogate/fig_moderator_density.png"
+      }
+    },
+    "moderation_optimum": {
+      "at": {
+        "enrichment": 3.5,
+        "fuel_temperature": 900.0,
+        "moderator_density": 0.8,
+        "pitch": 1.2999999999999998
+      },
+      "moderator_density": {
+        "peak_at": 0.7313283208020049,
+        "peak_keff": 1.247484805030555,
+        "peak_is_interior": true,
+        "moderation_ratio_at_peak": 1.5639434707310174
+      },
+      "pitch": {
+        "peak_at": 1.2656641604010024,
+        "peak_keff": 1.2474397015166427,
+        "peak_is_interior": true,
+        "moderation_ratio_at_peak": 1.564944204543311
+      },
+      "agreement": {
+        "ratio_from_density_sweep": 1.5639434707310174,
+        "ratio_from_pitch_sweep": 1.564944204543311,
+        "relative_difference": 0.0006396738497210308,
+        "consistent": true,
+        "both_peaks_interior": true
+      }
+    }
+  },
+  "figures": {
+    "parity": "results/surrogate/fig_parity.png",
+    "error_vs_sigma": "results/surrogate/fig_error_vs_sigma.png",
+    "error_by_parameter": "results/surrogate/fig_error_by_param.png",
+    "learning_curve": "results/surrogate/fig_learning_curve.png",
+    "doppler": "results/surrogate/fig_doppler.png",
+    "moderator_density": "results/surrogate/fig_moderator_density.png"
+  }
+}

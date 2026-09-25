@@ -1,0 +1,129 @@
+{
+  "designs": {
+    "train": 320,
+    "test": 128,
+    "replicate": 40
+  },
+  "coverage": {
+    "train": {
+      "enrichment": {
+        "min": 2.006056309504286,
+        "max": 4.99198509284042,
+        "mean": 3.5000688377310682,
+        "bound_low": 2.0,
+        "bound_high": 5.0
+      },
+      "fuel_temperature": {
+        "min": 600.4465426676013,
+        "max": 1199.4329650168863,
+        "mean": 900.0369475248277,
+        "bound_low": 600.0,
+        "bound_high": 1200.0
+      },
+      "moderator_density": {
+        "min": 0.6008490188471537,
+        "max": 0.9996407239862077,
+        "mean": 0.8000304327068397,
+        "bound_low": 0.6,
+        "bound_high": 1.0
+      },
+      "pitch": {
+        "min": 1.2003947219797362,
+        "max": 1.3997993091601473,
+        "mean": 1.300000982209275,
+        "bound_low": 1.2,
+        "bound_high": 1.4
+      }
+    },
+    "test": {
+      "enrichment": {
+        "min": 2.019189693965018,
+        "max": 4.978997462429106,
+        "mean": 3.499999283347279,
+        "bound_low": 2.0,
+        "bound_high": 5.0
+      },
+      "fuel_temperature": {
+        "min": 603.0282117426395,
+        "max": 1197.9919239878654,
+        "mean": 899.9999997206032,
+        "bound_low": 600.0,
+        "bound_high": 1200.0
+      },
+      "moderator_density": {
+        "min": 0.6016115877777338,
+        "max": 0.9989462997764349,
+        "mean": 0.7999999998137355,
+        "bound_low": 0.6,
+        "bound_high": 1.0
+      },
+      "pitch": {
+        "min": 1.2005294350907205,
+        "max": 1.3995664674788713,
+        "mean": 1.2999999999068677,
+        "bound_low": 1.2,
+        "bound_high": 1.4
+      }
+    },
+    "replicate": {
+      "enrichment": {
+        "min": 2.4877474127651613,
+        "max": 4.544855267854177,
+        "mean": 3.5578956257677428,
+        "bound_low": 2.0,
+        "bound_high": 5.0
+      },
+      "fuel_temperature": {
+        "min": 605.5973571480337,
+        "max": 1121.9846108632678,
+        "mean": 865.4707251385256,
+        "bound_low": 600.0,
+        "bound_high": 1200.0
+      },
+      "moderator_density": {
+        "min": 0.667085744710595,
+        "max": 0.9605498679488185,
+        "mean": 0.817101678810733,
+        "bound_low": 0.6,
+        "bound_high": 1.0
+      },
+      "pitch": {
+        "min": 1.2002456877039835,
+        "max": 1.3674787057988391,
+        "mean": 1.3026067933275178,
+        "bound_low": 1.2,
+        "bound_high": 1.4
+      }
+    }
+  },
+  "settings": {
+    "particles": 10000,
+    "batches": 130,
+    "inactive": 30,
+    "active_batches": 100,
+    "histories_per_run": 1000000,
+    "workers": 8,
+    "threads_per_run": 4
+  },
+  "totals": {
+    "train": {
+      "submitted": 320,
+      "completed": 320,
+      "failed": 0,
+      "skipped": 0
+    },
+    "test": {
+      "submitted": 128,
+      "completed": 128,
+      "failed": 0,
+      "skipped": 0
+    },
+    "replicate": {
+      "submitted": 40,
+      "completed": 40,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "wall_time_s": 4385.910845173001
+}

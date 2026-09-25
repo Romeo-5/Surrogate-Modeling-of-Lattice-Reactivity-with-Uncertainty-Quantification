@@ -1,0 +1,89 @@
+# Wraps the long-running commands so nobody has to remember the mount layout.
+#
+# The cross-section library lives in a **named volume**, not a host bind mount
+# and not an image layer.  That is a performance decision, not a style one: the
+# library is ~9 GB across tens of thousands of HDF5 files, and every OpenMC run
+# reopens the nuclides it needs.  On Docker Desktop a host bind mount crosses a
+# filesystem-sharing layer on each of those opens, which dominates the runtime
+# of a campaign made of many short runs.  A named volume is native to the
+# Linux VM and does not.
+#
+#   docker compose -f docker/docker-compose.yml run --rm fetch-data
+#   docker compose -f docker/docker-compose.yml run --rm verify
+#   docker compose -f docker/docker-compose.yml run --rm campaign
+#   docker compose -f docker/docker-compose.yml run --rm surrogate
+#   docker compose -f docker/docker-compose.yml run --rm tests
+
+x-common: &common
+  build:
+    context: ..
+    dockerfile: docker/Dockerfile
+  image: lattice-uq:latest
+  working_dir: /work
+  volumes:
+    - ..:/work
+    - openmc-data:/data
+  environment:
+    OPENMC_CROSS_SECTIONS: /data/endfb-vii.1-hdf5/cross_sections.xml
+    PYTHONPATH: /work/src
+    # One thread per OpenMC process; the campaign parallelises across runs.
+    OMP_NUM_THREADS: 1
+
+services:
+  fetch-data:
+    <<: *common
+    user: root
+    entrypoint: ["bash", "/work/scripts/fetch_data.sh"]
+    command: ["endfb-vii.1", "/data"]
+
+  verify:
+    <<: *common
+    command: ["python", "scripts/verify.py", "--outdir", "results/verification"]
+
+  # Run this before a long campaign on unfamiliar hardware: it measures which
+  # process/thread split this machine actually wants, which is worth a factor
+  # of ~1.5 in total wall time.
+  calibrate:
+    <<: *common
+    command: ["python", "scripts/calibrate.py"]
+
+  campaign:
+    <<: *common
+    command:
+      - python
+      - scripts/run_campaign.py
+      - --n-train=320
+      - --n-test=128
+      - --workers=8
+
+  surrogate:
+    <<: *common
+    command:
+      - python
+      - scripts/train_surrogate.py
+      - --data-dir=data
+      - --outdir=results/surrogate
+
+  # Independent check: reactivity coefficients from the surrogate against
+  # dedicated high-precision transport runs that were never trained on.
+  validate:
+    <<: *common
+    command:
+      - python
+      - scripts/validate_coefficient.py
+      - --particles=50000
+      - --params=fuel_temperature,enrichment
+
+  tests:
+    <<: *common
+    command: ["pytest", "-q", "tests"]
+
+  shell:
+    <<: *common
+    command: ["bash"]
+    stdin_open: true
+    tty: true
+
+volumes:
+  openmc-data:
+    name: openmc-data

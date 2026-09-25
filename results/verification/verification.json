@@ -1,0 +1,126 @@
+{
+  "cross_sections": "/data/endfb-vii.1-hdf5/cross_sections.xml",
+  "fixed_parameters": {
+    "boron_ppm": 975.0,
+    "fuel_radius": 0.39218,
+    "clad_inner_radius": 0.40005,
+    "clad_outer_radius": 0.4572,
+    "fuel_density": 10.29769,
+    "clad_temperature": 600.0,
+    "moderator_temperature": 600.0
+  },
+  "design_space": {
+    "enrichment": {
+      "low": 2.0,
+      "high": 5.0,
+      "units": "wt% U235",
+      "rationale": "Primary reactivity control; 5 wt% is the LEU licensing limit."
+    },
+    "fuel_temperature": {
+      "low": 600.0,
+      "high": 1200.0,
+      "units": "K",
+      "rationale": "Doppler broadening of U238 capture resonances; spans hot-zero-power to hot-full-power average fuel temperature."
+    },
+    "moderator_density": {
+      "low": 0.6,
+      "high": 1.0,
+      "units": "g/cm3",
+      "rationale": "Coolant voiding / boiling feedback; 0.74 g/cm3 is nominal PWR hot full power, 1.0 g/cm3 is cold."
+    },
+    "pitch": {
+      "low": 1.2,
+      "high": 1.4,
+      "units": "cm",
+      "rationale": "Moderator-to-fuel ratio; brackets the nominal 1.26 cm PWR lattice on both the under- and over-moderated side."
+    }
+  },
+  "geometry_figure": "results/verification/fig_geometry.png",
+  "reference_case": {
+    "point": {
+      "enrichment": 2.4,
+      "fuel_temperature": 600.0,
+      "moderator_density": 0.740582,
+      "pitch": 1.25984
+    },
+    "keff": 1.1448159248343022,
+    "keff_sigma": 0.00035952422321716275,
+    "keff_sigma_pcm": 35.95242232171628,
+    "particles": 50000,
+    "batches": 150,
+    "inactive": 40,
+    "wall_time_s": 75.52690682699995,
+    "openmc_version": "0.15.3",
+    "thermal_flux_fraction": 0.17620688930399053,
+    "entropy_check": {
+      "active_mean": 3.8986805172634926,
+      "active_std": 0.0027102611896583427,
+      "half_to_half_drift": 0.00013127494293829756,
+      "drift_within_one_std": true
+    },
+    "figures": {
+      "spectrum": "results/verification/fig_spectrum.png",
+      "entropy": "results/verification/fig_entropy.png"
+    }
+  },
+  "sigma_convergence": {
+    "particles": [
+      2000,
+      5000,
+      10000,
+      20000,
+      50000
+    ],
+    "keff": [
+      1.1451971831561334,
+      1.1455615762311513,
+      1.1447236166199721,
+      1.1451951312155049,
+      1.1452454294268648
+    ],
+    "sigma_pcm": [
+      205.61933416056374,
+      136.0708172456225,
+      85.38302888841828,
+      64.47338058706359,
+      38.56897068854674
+    ],
+    "loglog_slope": -0.5228779849774763,
+    "expected_slope": -0.5,
+    "passes": true,
+    "figure": "results/verification/fig_sigma_conv.png"
+  },
+  "enrichment_sweep": {
+    "enrichment": [
+      2.0,
+      2.5,
+      3.0,
+      3.5,
+      4.0,
+      4.5,
+      5.0
+    ],
+    "keff": [
+      1.085748671595106,
+      1.1580731539082998,
+      1.2120277797235568,
+      1.255541892705519,
+      1.2886891980093216,
+      1.3166740887612403,
+      1.3409101641768726
+    ],
+    "keff_sigma": [
+      0.0005776836934060167,
+      0.0005068520154707725,
+      0.000639290633641973,
+      0.000615069116987318,
+      0.0006141365261957054,
+      0.0006399694217423653,
+      0.0006205550450014933
+    ],
+    "monotonic": true,
+    "monotonic_beyond_noise": true,
+    "min_step_pcm": 2423.607541563233,
+    "figure": "results/verification/fig_enrichment.png"
+  }
+}

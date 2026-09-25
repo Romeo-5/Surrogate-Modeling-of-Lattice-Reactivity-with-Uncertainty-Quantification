@@ -1,0 +1,77 @@
+{
+  "point": {
+    "enrichment": 3.5,
+    "fuel_temperature": 847.0,
+    "moderator_density": 0.72,
+    "pitch": 1.3
+  },
+  "particles": 4000,
+  "batches": 40,
+  "inactive": 10,
+  "configurations": [
+    {
+      "processes": 1,
+      "threads_per_process": 1,
+      "cores_used": 1,
+      "wall_s": 12.522038110999802,
+      "mean_run_s": 12.50459586099987,
+      "histories_per_s": 12777.472691082958
+    },
+    {
+      "processes": 1,
+      "threads_per_process": 8,
+      "cores_used": 8,
+      "wall_s": 3.3297567949998665,
+      "mean_run_s": 3.3151132060002055,
+      "histories_per_s": 48051.55747118354
+    },
+    {
+      "processes": 1,
+      "threads_per_process": 32,
+      "cores_used": 32,
+      "wall_s": 2.5927526039999975,
+      "mean_run_s": 2.579729932999726,
+      "histories_per_s": 61710.477024749
+    },
+    {
+      "processes": 4,
+      "threads_per_process": 8,
+      "cores_used": 32,
+      "wall_s": 6.919297596999968,
+      "mean_run_s": 6.674547869000094,
+      "histories_per_s": 92494.93767654794
+    },
+    {
+      "processes": 8,
+      "threads_per_process": 4,
+      "cores_used": 32,
+      "wall_s": 13.561935744000039,
+      "mean_run_s": 12.884027685000092,
+      "histories_per_s": 94381.80685720232
+    },
+    {
+      "processes": 14,
+      "threads_per_process": 1,
+      "cores_used": 14,
+      "wall_s": 27.465271156999734,
+      "mean_run_s": 26.70886960757145,
+      "histories_per_s": 81557.54178414943
+    },
+    {
+      "processes": 20,
+      "threads_per_process": 1,
+      "cores_used": 20,
+      "wall_s": 39.39061919000005,
+      "mean_run_s": 38.54293899654999,
+      "histories_per_s": 81237.61610765367
+    }
+  ],
+  "best": {
+    "processes": 8,
+    "threads_per_process": 4,
+    "cores_used": 32,
+    "wall_s": 13.561935744000039,
+    "mean_run_s": 12.884027685000092,
+    "histories_per_s": 94381.80685720232
+  }
+}

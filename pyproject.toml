@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lattice-uq"
+version = "0.1.0"
+description = "Surrogate modelling of PWR pin-cell reactivity with uncertainty quantification"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+# OpenMC is not installable from PyPI; the environment comes from
+# environment.yml (conda-forge) or the Docker image. Only the pure-Python
+# analysis stack is declared here.
+dependencies = [
+    "numpy>=1.24",
+    "scipy>=1.11",
+    "pandas>=2.0",
+    "pyarrow>=14",
+    "scikit-learn>=1.4",
+    "matplotlib>=3.8",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+# So `pytest` works from the repo root without setting PYTHONPATH.
+pythonpath = ["src"]
+testpaths = ["tests"]
+filterwarnings = [
+    # scikit-learn reports a length scale pinned at its bound as a convergence
+    # failure. For a parameter the response barely depends on, that is the
+    # correct answer, not a problem.
+    "ignore::sklearn.exceptions.ConvergenceWarning",
+]
